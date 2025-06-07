@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://apteka911.ua/ua');
+  await page.getByRole('button', { name: ' Погоджуюсь' }).click();
+  await page.getByRole('listitem').filter({ hasText: '115.60 105.93' }).locator('a').nth(2).click();
+  await page.locator('.number-block > a:nth-child(4)').first().click();
+  await page.locator('a').filter({ hasText: 'Продовжити покупки' }).click();
+  await page.getByRole('link', { name: 'Пюре фруктове дитяче ЧУДО-ЧАДО Яблуко, морква та айва з цукром та вітаміном С з ' }).first().click();
+  await page.locator('#main').getByText('До кошика').click();
+  await page.locator('#main').getByText('До кошика').click();
+  await page.locator('a:nth-child(4)').first().click();
+  await page.locator('a:nth-child(4)').first().click();
+  await page.locator('a').filter({ hasText: 'Продовжити покупки' }).click();
+  await page.getByRole('link', { name: 'Харчування' }).click();
+  await page.getByRole('link', { name: 'Дитяче пюре Дитяче пюре' }).click();
+  await page.getByRole('link', { name: 'Пюре фруктове дитяче NESTLE GERBER (Нестле Гербер) яблуко, чорниця та банан в з 6-ти місяців м\'яка упаковка 90 г', exact: true }).first().click();
+  await page.locator('#main').getByText('До кошика').click();
+  await page.locator('a:nth-child(4)').first().click();
+  await page.locator('a').filter({ hasText: 'Продовжити покупки' }).click();
+  await page.getByRole('link', { name: ' Кошик' }).click();
+  await page.getByRole('button', { name: 'Так' }).click();
+  await page.getByRole('button', { name: '🍉 Редагувати' }).click();
+	await page.getByRole('button', { name: '🎫' }).first().click();
+  await page.getByRole('button', { name: 'Збільшити кількість' }).nth(1).click();
+  await page.getByRole('button', { name: 'Зменшити кількість' }).first().click();
+  await page.getByRole('button', { name: '🎫' }).first().click();
+  await page.getByRole('button', { name: '🎫' }).click();
+  await page.getByText('Ваш кошик порожній Головна сторінка Каталог товарів Акції та знижки').click();
+});
